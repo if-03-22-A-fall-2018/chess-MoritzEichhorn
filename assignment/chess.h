@@ -19,7 +19,6 @@
  struct ChessSquare{
    bool is_occupied;
    struct ChessPiece piece;
-
  };
 
  enum PieceType {
