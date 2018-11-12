@@ -13,7 +13,7 @@
 #ifndef ___CHESS_H
 #define ___CHESS_H
 
- enum PieceType { Pawn, Rook, Knight, Bishop, Queen, King, NoPiece };
+ enum PieceType { NoPiece, Pawn, Rook, Knight, Bishop, Queen, King };
  enum PieceColor { White, Black };
  enum MoveType { NormalMove, CaptureMove };
 
@@ -33,12 +33,10 @@
  typedef int Rank;
 
  bool is_square_ok (File file, Rank rank);
- int nr (Rank rank);
- int nf (File file);
  bool is_move_from_base_line (enum PieceColor color, Rank rank);
  bool is_piece (struct ChessPiece pc, enum PieceColor color, enum PieceType type);
  void init_chess_board (ChessBoard chess_board);
- struct ChessSquare * 	get_square (ChessBoard ches_board, File file, Rank rank);
+ struct ChessSquare * get_square (ChessBoard ches_board, File file, Rank rank);
  bool is_square_occupied (ChessBoard chess_board, File file, Rank rank);
  bool add_piece (ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece);
  struct ChessPiece 	get_piece (ChessBoard chess_board, File file, Rank rank);
