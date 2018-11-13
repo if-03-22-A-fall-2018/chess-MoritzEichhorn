@@ -43,6 +43,7 @@
      for(int rank =  0; rank < 8; rank++)
       {
         chess_board[rank][file].is_occupied = false;
+        chess_board[rank][file].piece.type = NoPiece;
       }
     }
   }
@@ -164,7 +165,7 @@
    if(is_square_ok(s1_f, s1_r) && is_square_ok(s2_f, s2_r))
    {
      int deltaY = s1_r - s2_r;
-     int deltaX = (s1_f -'a') - (s2_f -'a');
+     int deltaX = s1_f - s2_f;
 
      return deltaY != 0 && (deltaX / deltaY == 1 || deltaX / deltaY == -1);
    }
@@ -175,7 +176,7 @@
  {
    if(is_square_ok(s1_f, s1_r) && is_square_ok(s2_f, s2_r))
    {
-     int deltaX = (s1_f - 'a') - (s2_f- 'a');
+     int deltaX = s1_f - s2_f;
      int deltaY = s1_r - s2_r;
      if(deltaY != 0)
      {
@@ -252,7 +253,7 @@
    int deltaY;
 
    deltaY = s1_r - s2_r;
-   deltaX = (s1_f - 'a') - (s2_f - 'a');
+   deltaX = s1_f - s2_f;
 
    return (deltaX <= 1) && (deltaX >= -1) && (deltaY >= -1) && (deltaY <= 1) && (deltaY != 0 || deltaX != 0);
  }
