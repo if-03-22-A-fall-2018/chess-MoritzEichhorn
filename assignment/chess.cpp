@@ -118,6 +118,7 @@
    for(int i = 'a'; i <= 'h'; i++)
    {
      add_piece(chess_board, i, 2, white_pawn);
+     add_piece(chess_board, i, 7, black_pawn);
    }
 
    add_piece(chess_board, 'a', 8 , black_rook);
@@ -128,11 +129,6 @@
    add_piece(chess_board, 'f', 8 , black_bishop);
    add_piece(chess_board, 'g', 8 , black_knight);
    add_piece(chess_board, 'h', 8 , black_rook);
-
-   for(int i = 'a'; i <= 'h'; i++)
-   {
-     add_piece(chess_board, i, 7, black_pawn);
-   }
  }
 
  bool remove_piece (ChessBoard chess_board, File file, Rank rank)
@@ -258,5 +254,5 @@
    deltaY = s1_r - s2_r;
    deltaX = (s1_f - 'a') - (s2_f - 'a');
 
-   return (deltaX <= 1) && (deltaX >= -1) && (deltaY >= -1) && (deltaY <= 1);
+   return (deltaX <= 1) && (deltaX >= -1) && (deltaY >= -1) && (deltaY <= 1) && (deltaY != 0 || deltaX != 0);
  }
